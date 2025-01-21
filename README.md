@@ -11,7 +11,7 @@ Logan Babiec
   <li>Justin Childs</li>
   <li>Logan Babiec</li>
   <li>Ryan Hoover</li>
-  <li>Sand Vang</li>
+  <li>Sang Vang</li>
   <li>Andrei Marita</li>
   <li>Cj Naujokas</li>
   <li>Muhammed Barry</li>
