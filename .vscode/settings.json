@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "DefenCLT.sln"
+    "dotnet.defaultSolution": "project.sln"
 }
