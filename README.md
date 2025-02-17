@@ -1,3 +1,8 @@
+<h2>Instructions:</h2>
+<p>git clone https://github.com/4155-Project-Team-Group7/project</p>
+<p>Open unity hub and > Add > Add project from disk > (Navigate to repo that was just cloned)</p>
+<p>To update, perform git actions on repo</p>
+
 <h1>Big L</h1>
 
 <h2>Scrum Master</h2>
