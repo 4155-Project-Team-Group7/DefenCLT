@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (Vector2.Distance(target.position, transform.position) <= 0.1f)
         {
-            pathInd = pathInd++;
+            pathInd++;
             if (pathInd == LevelManager.main.path.Length) 
             {
                 Destroy(gameObject);
