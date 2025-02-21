@@ -14,5 +14,10 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ExitToMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
     
 }
