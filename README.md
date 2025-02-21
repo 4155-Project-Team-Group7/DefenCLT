@@ -17,7 +17,7 @@ Logan Babiec
   <li>Logan Babiec</li>
   <li>Ryan Hoover</li>
   <li>Sang Vang</li>
-  <li>Andrei Marita</li>
+  <li>David Marita</li>
   <li>Cj Naujokas</li>
   <li>Muhammed Barry</li>
 </ul>
