@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: 9814f26718bc2ab43bebc1ca67f1a73d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6780576010006018597
+    second: DefenCLT Logo_0
+  - first:
+      213: -7833797025558000032
+    second: DefenCLT Logo_1
+  - first:
+      213: -2468847143033742430
+    second: DefenCLT Logo_2
+  - first:
+      213: 8634887420086355701
+    second: DefenCLT Logo_3
+  - first:
+      213: -736724265731633128
+    second: DefenCLT Logo_4
+  - first:
+      213: 6028690044693120562
+    second: DefenCLT Logo_5
+  - first:
+      213: 6636097904417563443
+    second: DefenCLT Logo_6
+  - first:
+      213: 1679642074692541068
+    second: DefenCLT Logo_7
+  - first:
+      213: -5139740565826221166
+    second: DefenCLT Logo_8
+  - first:
+      213: 2045079053923814194
+    second: DefenCLT Logo_9
+  - first:
+      213: -8314083871402655675
+    second: DefenCLT Logo_10
+  - first:
+      213: -3105628674843628589
+    second: DefenCLT Logo_11
+  - first:
+      213: -1248498448981193261
+    second: DefenCLT Logo_12
+  - first:
+      213: 5559709836332294843
+    second: DefenCLT Logo_13
+  - first:
+      213: 3283693123313531453
+    second: DefenCLT Logo_14
+  - first:
+      213: 8382027195389416058
+    second: DefenCLT Logo_15
+  - first:
+      213: 2032843640841621334
+    second: DefenCLT Logo_16
+  - first:
+      213: 7224360829262307354
+    second: DefenCLT Logo_17
+  - first:
+      213: 3172547342195142708
+    second: DefenCLT Logo_18
+  - first:
+      213: 1000711422170364266
+    second: DefenCLT Logo_19
+  - first:
+      213: 5974079924341320265
+    second: DefenCLT Logo_20
+  - first:
+      213: -7879881655894096147
+    second: DefenCLT Logo_21
+  - first:
+      213: -3174113510809562648
+    second: DefenCLT Logo_22
+  - first:
+      213: 4143830984246215226
+    second: DefenCLT Logo_23
+  - first:
+      213: -5144386396788905430
+    second: DefenCLT Logo_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DefenCLT Logo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 89
+        height: 1023
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd54e0f3b0e86e1a0800000000000000
+      internalID: -6780576010006018597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 694
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06e8a194c13c84390800000000000000
+      internalID: -7833797025558000032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_2
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 640
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ab5cba9a94ecbdd0800000000000000
+      internalID: -2468847143033742430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_3
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 310
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f68cb5eb5845d770800000000000000
+      internalID: 8634887420086355701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_4
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 302
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810d7a30f21a6c5f0800000000000000
+      internalID: -736724265731633128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_5
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 792
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2360ede77a53aa350800000000000000
+      internalID: 6028690044693120562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_6
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 752
+        width: 6
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 333e58f62e7281c50800000000000000
+      internalID: 6636097904417563443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_7
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 725
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8a59db51994f4710800000000000000
+      internalID: 1679642074692541068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_8
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 712
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29b4348df29fba8b0800000000000000
+      internalID: -5139740565826221166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_9
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 704
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23b88b27094916c10800000000000000
+      internalID: 2045079053923814194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_10
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 662
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5408d34d4c07e9c80800000000000000
+      internalID: -8314083871402655675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_11
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 520
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dbadafac2796e4d0800000000000000
+      internalID: -3105628674843628589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_12
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 480
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dd89d586417caee0800000000000000
+      internalID: -1248498448981193261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_13
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 424
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb2e4d8b3ae082d40800000000000000
+      internalID: 5559709836332294843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_14
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 320
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3afe767f75029d20800000000000000
+      internalID: 3283693123313531453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 283
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7299d60351f25470800000000000000
+      internalID: 8382027195389416058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_16
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 744
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65fc648558c163c10800000000000000
+      internalID: 2032843640841621334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_17
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 736
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a102d6dd5e5124460800000000000000
+      internalID: 7224360829262307354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_18
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 608
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 430b6a4bff6270c20800000000000000
+      internalID: 3172547342195142708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_19
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 560
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a69f3298cbd33ed00800000000000000
+      internalID: 1000711422170364266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_20
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 439
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94a28260a0238e250800000000000000
+      internalID: 5974079924341320265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_21
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 400
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de6c054226905a290800000000000000
+      internalID: -7879881655894096147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_22
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 24
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e19d6f349843f3d0800000000000000
+      internalID: -3174113510809562648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_23
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 0
+        width: 1418
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a32c0414358d18930800000000000000
+      internalID: 4143830984246215226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DefenCLT Logo_24
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 10
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2aab0804d77b98b0800000000000000
+      internalID: -5144386396788905430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      DefenCLT Logo_0: -6780576010006018597
+      DefenCLT Logo_1: -7833797025558000032
+      DefenCLT Logo_10: -8314083871402655675
+      DefenCLT Logo_11: -3105628674843628589
+      DefenCLT Logo_12: -1248498448981193261
+      DefenCLT Logo_13: 5559709836332294843
+      DefenCLT Logo_14: 3283693123313531453
+      DefenCLT Logo_15: 8382027195389416058
+      DefenCLT Logo_16: 2032843640841621334
+      DefenCLT Logo_17: 7224360829262307354
+      DefenCLT Logo_18: 3172547342195142708
+      DefenCLT Logo_19: 1000711422170364266
+      DefenCLT Logo_2: -2468847143033742430
+      DefenCLT Logo_20: 5974079924341320265
+      DefenCLT Logo_21: -7879881655894096147
+      DefenCLT Logo_22: -3174113510809562648
+      DefenCLT Logo_23: 4143830984246215226
+      DefenCLT Logo_24: -5144386396788905430
+      DefenCLT Logo_3: 8634887420086355701
+      DefenCLT Logo_4: -736724265731633128
+      DefenCLT Logo_5: 6028690044693120562
+      DefenCLT Logo_6: 6636097904417563443
+      DefenCLT Logo_7: 1679642074692541068
+      DefenCLT Logo_8: -5139740565826221166
+      DefenCLT Logo_9: 2045079053923814194
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
