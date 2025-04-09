@@ -1,7 +1,5 @@
 using UnityEngine;
 using TMPro;
-using Firebase.Auth; // Ensure you have the Firebase Unity SDK installed
-using Firebase.Extensions; // For ContinueWith extension method
 
 
 public class RegistrationHandler : MonoBehaviour
