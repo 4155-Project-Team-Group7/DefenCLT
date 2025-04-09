@@ -47,6 +47,16 @@ public class AuthManager : MonoBehaviour
         });
     }
 
+    public void Logout()
+    {
+        //Call the Firebase auth signout function
+        auth.SignOut();
+        //Return to the login screen
+        UIManager.instance.LoginScreen();
+        confirmLoginText.text = "Logged out Successfully";
+        Debug.Log("User logged out successfully");
+    }
+
      private void InitializeFirebase()
     {
         Debug.Log("Setting up Firebase Auth");
