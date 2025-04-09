@@ -1,5 +1,8 @@
 using UnityEngine;
 using TMPro;
+using Firebase.Auth; // Ensure you have the Firebase Unity SDK installed
+using Firebase.Extensions; // For ContinueWith extension method
+
 
 public class RegistrationHandler : MonoBehaviour
 {
@@ -8,20 +11,33 @@ public class RegistrationHandler : MonoBehaviour
     public TMP_InputField passwordInput;
     public TMP_InputField checkPasswordInput;
 
-    // This method is called when the user presses the register button
-    public void OnRegisterButtonClick()
+    Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
+
+    // Method to create a new user
+    public void CreateUser()
     {
-        // Retrieve text from each input field
         string email = emailInput.text;
         string password = passwordInput.text;
         string checkPassword = checkPasswordInput.text;
 
-        // Output the input values to the console (or handle registration logic)
-        Debug.Log("Username: " + email);
-        Debug.Log("Email: " + password);
-        Debug.Log("Password: " + checkPassword);
+        auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
+        if (task.IsCanceled) {
+            Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
+            return;
+        }
+        if (task.IsFaulted) {
+            Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+            return;
+        }
 
-        // Continue with registration handling (e.g., send data to your back-end)
+        // Firebase user has been created.
+        Firebase.Auth.AuthResult result = task.Result;
+        Debug.LogFormat("Firebase user created successfully: {0} ({1})",
+            result.User.DisplayName, result.User.UserId);
+        });
     }
+
+    // This method is called when the user presses the register button
+
 }
 
