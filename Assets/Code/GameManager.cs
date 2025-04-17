@@ -45,8 +45,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-
-
     public List<TurretData> GetPlacedTurrets()
     {
         return placedTurrets;
