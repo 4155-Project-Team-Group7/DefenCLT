@@ -7,7 +7,8 @@ public class LevelManager : MonoBehaviour
     public static LevelManager main;
     public Transform start;
     public Transform[] path;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public int currency;
+    
     private void Awake()
     {
         main = this;
