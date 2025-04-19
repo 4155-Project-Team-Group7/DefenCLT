@@ -74,6 +74,8 @@ public class Spawner : MonoBehaviour
         timeSinceLastSpawn = 0f;
         currentWave++;
         StartCoroutine(StartWave());
+
+        // GameManager.instance.SetCurrentWave(currentWave); // Saving to game state
     }
 
     private void SpawnEnemy()

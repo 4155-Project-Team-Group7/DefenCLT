@@ -18,6 +18,11 @@ public class Turret : MonoBehaviour
     private Transform target;
     private float timeUntilFire;
 
+    // List and Dictionary for saving and loading turrets
+    List<TurretSaveData> turretList = GetPlacedTurrets();
+    private Dictionary<GameObject, GameObject> turretPrefabs = new Dictionary<GameObject, GameObject>();
+
+
     //checking if there is an enemy and roataing the turret to it
     void Update()
     {
@@ -52,6 +57,7 @@ public class Turret : MonoBehaviour
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         Bullet bulletScript = bulletObj.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
+
     }
 
 
@@ -76,4 +82,93 @@ public class Turret : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f,0f,angle));
         turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
+
+
+// Saving and Loading mechanisms
+
+    public List<TurretSaveData> GetPlacedTurrets()
+    {
+        foreach (var turret in FindObjectsOfType<Turret>())
+        {
+            TurretSaveData turretData = new TurretSaveData
+            {
+                position = turret.transform.position,
+                turretType = turret.name, // Assuming the name of the GameObject is the type of turret
+                upgradeLevel = 1 // Placeholder for upgrade level, implement your own logic here
+            };
+            turretList.Add(turretData);
+            turretPrefabs[turret.gameObject] = turret.TurretPrefab; // Store the turret prefab reference
+        }
+        return turretSaveData;
+    }
+    public void Save(ref SceneTurretData data)
+    {
+        List<TurretSaveData> turretSaveData = GetPlacedTurrets();
+        for (int i = turretList.Count - 1; i >= 0; i--)
+        {
+            if (turretList[i] != null)
+            {
+                GameObject turret = turretList[i];
+                TurretSaveData turretData = new TurretSaveData
+                {
+                    position = turret.transform.position,
+                    turretType = turret.name,
+                    upgradeLevel = 1 // Placeholder for upgrade level, implement your own logic here
+                };
+                turretSaveData.Add(turretData);
+            }
+            else
+            {
+                turretList.RemoveAt(i); // Remove null entries
+            }
+        }
+        data.Turrets = turretSaveData.ToArray(); // Convert to array for saving
+    }
+
+    public void LoadGame()
+    {
+        SceneTurretData data = SaveSystem.LoadGame();
+
+        foreach(var turret in turretList)
+        {
+            if (turret != null)
+            {
+                Destroy(turret.gameObject); // Destroy existing turrets
+            }
+        }
+        turretList.Clear();
+        turretPrefabs.Clear();
+
+        foreach (var turretData in data.turrets)
+        {
+            if (turretData.turretPrefab != null)
+            {
+                GameObject turret = Instantiate(turretData.turretPrefab, turretData.position, Quaternion.identity);
+                turret.upgradeLevel = turretData.upgradeLevel; // Set the upgrade level
+                turret.turretType = turretData.turretType; // Set the name of the turret
+                turretList.Add(turret); // Add to the list of turrets
+                turretPrefabs[turret] = turretData.turretPrefab;
+            }
+        }
+    }
+
+
 }
+
+[System.Serializable]
+public struct SceneTurretData
+{
+    public TurretSaveData[] Turrets;
+}
+
+[System.Serializable]
+public struct TurretSaveData
+{
+    public Vector2 position;
+    public string turretType;
+    public int upgradeLevel;
+    public GameObject turretPrefab;
+}
+
+
+
