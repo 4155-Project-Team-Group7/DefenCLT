@@ -9,19 +9,24 @@ public class GameManager : MonoBehaviour
     public int currentWave { get; private set; } = 1;
     public int playerHealth { get; private set; } = 10;
 
+    public Turret Turret {get; private set; } // Reference to the Turret script
+
+    // public int Map = 2
+
     // Placed turrets tracking
     private List<TurretData> placedTurrets = new List<TurretData>();
 
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (instance = null){
+            instance = this;
+            DontDestroyOnLoad(gameObject); // Optional: Persist across scenes
+        }
+        else
         {
             Destroy(gameObject);
-            return;
         }
 
-        instance = this;
-        DontDestroyOnLoad(gameObject); // Optional: Persist across scenes
     }
 
     public void SetCurrentWave(int wave)
@@ -55,11 +60,8 @@ public class GameManager : MonoBehaviour
         placedTurrets.Clear();
     }
 
-    [System.Serializable]
-    public class TurretData
-    {
-        public Vector2 position;
-        public string turretType;
-        public int upgradeLevel;
-    }
+
+    
+
+
 }
