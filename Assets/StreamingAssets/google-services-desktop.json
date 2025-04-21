@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "457379575591",
+    "project_id": "defenclt-ab620",
+    "storage_bucket": "defenclt-ab620.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457379575591:android:0c48df3c24502419745b02",
+        "android_client_info": {
+          "package_name": "com.bigl.defenclt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGYsujEpv3ks8jZ-WIKKZXBUOmSWNm-NE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
