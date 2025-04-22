@@ -18,9 +18,6 @@ public class Turret : MonoBehaviour
     private Transform target;
     private float timeUntilFire;
 
-    // List and Dictionary for saving and loading turrets
-    List<TurretSaveData> turretList = GetPlacedTurrets();
-    private Dictionary<GameObject, GameObject> turretPrefabs = new Dictionary<GameObject, GameObject>();
 
 
     //checking if there is an enemy and roataing the turret to it

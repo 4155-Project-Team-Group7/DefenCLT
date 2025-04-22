@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class GameManager : MonoBehaviour
     public int currentWave { get; private set; } = 1;
     public int playerHealth { get; private set; } = 10;
 
-    [Header("Turret Tracking")]
-    [SerializeField] private List<GameObject> turretPrefabs; // Assign in Inspector
+    [Header("Turret Prefabs")]
+    [SerializeField] private List<GameObject> turretPrefabs; 
+    private Dictionary<string, GameObject> prefabLookup;
+
     private List<TurretData> placedTurrets = new List<TurretData>();
 
     private void Awake()
@@ -23,7 +26,11 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
+
+        // Build prefab lookup dictionary
+        prefabLookup = turretPrefabs.ToDictionary(p => p.name, p => p);
     }
 
     public void SetCurrentWave(int wave)
@@ -36,16 +43,13 @@ public class GameManager : MonoBehaviour
         playerHealth = health;
     }
 
-    public void RegisterTurret(Vector2 position, string turretType, int upgradeLevel)
+    public void RegisterTurret(Vector2 position, GameObject turretPrefab /*, int upgradeLevel*/ )
     {
-        GameObject prefab = turretPrefabs.Find(t => t.name == turretType);
-
         placedTurrets.Add(new TurretData
         {
             position = position,
-            turretType = turretType,
-            upgradeLevel = upgradeLevel,
-            turretPrefab = prefab
+            prefabName = turretPrefab.name,
+            // upgradeLevel = upgradeLevel // Uncomment if you have an upgrade system
         });
     }
 
@@ -65,24 +69,84 @@ public class GameManager : MonoBehaviour
 
         foreach (var turretData in savedTurrets)
         {
-            GameObject prefab = turretPrefabs.Find(t => t.name == turretData.turretType);
-            if (prefab != null)
+            if (prefabLookup.TryGetValue(turretData.prefabName, out GameObject prefab))
             {
                 GameObject turretGO = Instantiate(prefab, turretData.position, Quaternion.identity);
-                Turret turretScript = turretGO.GetComponent<Turret>();
-                turretScript.SetUpgradeLevel(turretData.upgradeLevel);
+
+                // Optional: Apply upgrade level if your turret script supports it
+                // Turret turretScript = turretGO.GetComponent<Turret>();
+                // turretScript.SetUpgradeLevel(turretData.upgradeLevel);
+            }
+            else
+            {
+                Debug.LogWarning($"Prefab not found for turret: {turretData.prefabName}");
             }
 
             placedTurrets.Add(turretData);
         }
     }
+
+    // Save the game
+    public void SaveGame()
+    {
+        SaveSystem.SaveGame();
+        Debug.Log("Game saved.");
+    }
+
+    // Load the game
+    public void LoadGame()
+    {
+        var loadedData = SaveSystem.LoadGame();
+        
+        // Convert SaveSystem.TurretSaveData back into TurretData
+        TurretData[] turretData = loadedData.turrets.Select(t => new TurretData
+        {
+            position = t.position,
+            prefabName = t.prefabName
+        }).ToArray();
+
+        LoadTurrets(turretData);
+        Debug.Log("Game loaded.");
+    }
+
+    // Optional: Save on New Game
+    public void StartNewGame()
+    {
+        SaveSystem.ClearSave();
+        ClearTurrets();
+        currentWave = 1;
+        playerHealth = 10;
+        Debug.Log("New game started.");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            SaveGame();
+            Debug.Log("Game saved.");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            LoadGame();
+            Debug.Log("Game loaded.");
+        }
+    }
+
 }
 
 [System.Serializable]
 public struct TurretData
 {
     public Vector2 position;
-    public string turretType;
-    public int upgradeLevel;
-    public GameObject turretPrefab;
+    public string prefabName;
+    // public int upgradeLevel;
 }
+
+
+// [System.Serializable]
+// public class SceneTurretData
+// {
+//     public TurretData[] turrets;
+// }
