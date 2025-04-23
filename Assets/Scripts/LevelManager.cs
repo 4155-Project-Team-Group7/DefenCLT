@@ -17,11 +17,13 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         currency = 100;
+        GameManager.instance.SetCurrency(currency);
     }
 
     public void IncreaseCurrency(int amount)
     {
         currency += amount;
+        GameManager.instance.SetCurrency(currency);
     }
 
     public bool SpendCurrency(int amount)
@@ -29,6 +31,7 @@ public class LevelManager : MonoBehaviour
         if (amount <= currency)
         {
             currency -= amount;
+            GameManager.instance.SetCurrency(currency); 
             return true;
         }
 
@@ -38,4 +41,11 @@ public class LevelManager : MonoBehaviour
             return false;
         }
     }
+
+    public void LoadCurrency(int amount)
+    {
+        currency = amount;
+        GameManager.instance.SetCurrency(currency);
+    }
+
 }

@@ -12,9 +12,12 @@ public static class SaveSystem
     }
 
     [System.Serializable]
-    public struct SceneTurretData
+    public struct SceneData
     {
         public string sceneName;  // Store the scene name here
+        public int currentWave;  // Store the current wave number
+        // public int playerHealth;  // Optional: Store player health if needed
+        public int currency;  // Optional: Store player currency if needed
         public TurretSaveData[] turrets;
     }
 
@@ -35,11 +38,24 @@ public static class SaveSystem
 
         // Get the current scene name
         string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        if (string.IsNullOrEmpty(currentScene))
+        {
+            Debug.LogWarning("Current scene name is empty. Cannot save game.");
+            return;
+        }
+
+        // Get the Current Wave
+        int currentWave = GameManager.instance.currentWave;
+        int currency = GameManager.instance.currency;
+        // Optional: Get player health if needed
+        // int playerHealth = GameManager.instance.playerHealth;  // Uncomment if needed
 
         // Prepare the save data
-        SceneTurretData sceneData = new SceneTurretData
+        SceneData sceneData = new SceneData
         {
             sceneName = currentScene,
+            currentWave = currentWave,
+            currency = currency,
             turrets = turretSaveList.ToArray()
         };
 
@@ -51,23 +67,23 @@ public static class SaveSystem
     }
 
     // Load the game state from a file
-    public static SceneTurretData LoadGame()
+    public static SceneData LoadGame()
     {
         if (!File.Exists(GetSavePath()))
         {
             Debug.LogWarning("No save file found!");
-            return new SceneTurretData();  // Return an empty data structure
+            return new SceneData();  // Return an empty data structure
         }
 
         string json = File.ReadAllText(GetSavePath());
-        SceneTurretData loadedData = JsonUtility.FromJson<SceneTurretData>(json);
+        SceneData loadedData = JsonUtility.FromJson<SceneData>(json);
 
         // Check if the save file is from the current scene
         string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         if (loadedData.sceneName != currentScene)
         {
             Debug.LogWarning("Saved data does not match the current scene.");
-            return new SceneTurretData();  // Return empty data if the scene doesn't match
+            return new SceneData();  // Return empty data if the scene doesn't match
         }
 
         return loadedData;

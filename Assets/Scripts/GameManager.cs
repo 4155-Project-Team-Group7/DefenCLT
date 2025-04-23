@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public int currentWave { get; private set; } = 1;
     public int playerHealth { get; private set; } = 10;
 
+    public int currency { get; private set; } = 0;
+
     [Header("Turret Prefabs")]
     [SerializeField] private List<GameObject> turretPrefabs; 
     private Dictionary<string, GameObject> prefabLookup;
@@ -44,6 +46,11 @@ public class GameManager : MonoBehaviour
         playerHealth = health;
     }
 
+    public void SetCurrency(int amount)
+    {
+        currency = amount;
+    }
+
     public void RegisterTurret(Vector2 position, GameObject turretPrefab /*, int upgradeLevel*/ )
     {
         placedTurrets.Add(new TurretData
@@ -67,21 +74,31 @@ public class GameManager : MonoBehaviour
     public void LoadTurrets(TurretData[] savedTurrets)
     {
         ClearTurrets();
+        Plot[] allPlots = FindObjectsByType<Plot>(FindObjectsSortMode.None);
+
+        foreach (Plot plot in allPlots)
+        {
+            plot.ClearTurret();
+        }
 
         foreach (var turretData in savedTurrets)
         {
-            Debug.Log($"Loading turret: {turretData.prefabName} at {turretData.position}");
             if (prefabLookup.TryGetValue(turretData.prefabName, out GameObject prefab))
             {
-                GameObject turretGO = Instantiate(prefab, turretData.position, Quaternion.identity);
+                Plot plot = allPlots.FirstOrDefault(p => Vector2.Distance(p.transform.position, turretData.position) < 0.1f);
 
-                // Optional: Apply upgrade level if your turret script supports it
-                // Turret turretScript = turretGO.GetComponent<Turret>();
-                // turretScript.SetUpgradeLevel(turretData.upgradeLevel);
+                if (plot != null)
+                {
+                    plot.LoadTurret(prefab);
+                }
+                else
+                {
+                    Debug.LogWarning($"No plot found at position {turretData.position}");
+                }
             }
             else
             {
-                Debug.LogWarning($"Prefab not found for turret: {turretData.prefabName}");
+                Debug.LogWarning($"Prefab not found: {turretData.prefabName}");
             }
 
             placedTurrets.Add(turretData);
@@ -98,6 +115,20 @@ public class GameManager : MonoBehaviour
     public void LoadGame()
     {
         var loadedData = SaveSystem.LoadGame();
+
+        // Loading Scene
+        Debug.Log($"Loaded scene: {loadedData.sceneName}");
+
+        // Load Current Wave
+        Debug.Log($"Loaded current wave: {loadedData.currentWave}");
+        Spawner.instance.LoadWave(loadedData.currentWave);
+
+
+        // Debug.Log($"Loaded player health: {loadedData.playerHealth}");
+
+        // Load Currency
+        Debug.Log($"Loaded currency: {loadedData.currency}");
+        LevelManager.main.LoadCurrency(loadedData.currency);
         
         // Convert SaveSystem.TurretSaveData back into TurretData
         TurretData[] turretData = loadedData.turrets.Select(t => new TurretData

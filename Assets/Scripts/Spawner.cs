@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour
 {
+    public static Spawner instance;
+
     [Header("References")]
     [SerializeField] private GameObject[] enemyList;
 
@@ -25,6 +27,15 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("More than one Spawner found! Destroying duplicate.");
+            Destroy(gameObject);
+        }
         onEnemyDestroy.AddListener(EnemyDestroyed);
     }
 
@@ -75,7 +86,7 @@ public class Spawner : MonoBehaviour
         currentWave++;
         StartCoroutine(StartWave());
 
-        // GameManager.instance.SetCurrentWave(currentWave); // Saving to game state
+        GameManager.instance.SetCurrentWave(currentWave); // Update the current wave in GameManager
     }
 
     private void SpawnEnemy()
@@ -88,4 +99,12 @@ public class Spawner : MonoBehaviour
     {
         return Mathf.RoundToInt(baseNumEnemies * Mathf.Pow(currentWave, scalingFactor));
     }
+
+    public void LoadWave(int wave)
+    {
+        currentWave = wave;
+        GameManager.instance.SetCurrentWave(currentWave); // Update the current wave in GameManager
+        StartCoroutine(StartWave());
+    }
+
 }
