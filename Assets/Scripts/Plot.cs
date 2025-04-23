@@ -41,5 +41,6 @@ public class Plot : MonoBehaviour
 
         LevelManager.main.SpendCurrency(towerToBuild.cost);
         tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+        GameManager.instance.RegisterTurret(transform.position, towerToBuild.prefab);
     }
 }
