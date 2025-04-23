@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Build prefab lookup dictionary
+        turretPrefabs = Resources.LoadAll<GameObject>("Turrets").ToList();
         prefabLookup = turretPrefabs.ToDictionary(p => p.name, p => p);
     }
 
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
 
         foreach (var turretData in savedTurrets)
         {
+            Debug.Log($"Loading turret: {turretData.prefabName} at {turretData.position}");
             if (prefabLookup.TryGetValue(turretData.prefabName, out GameObject prefab))
             {
                 GameObject turretGO = Instantiate(prefab, turretData.position, Quaternion.identity);
@@ -90,7 +92,6 @@ public class GameManager : MonoBehaviour
     public void SaveGame()
     {
         SaveSystem.SaveGame();
-        Debug.Log("Game saved.");
     }
 
     // Load the game
@@ -106,7 +107,6 @@ public class GameManager : MonoBehaviour
         }).ToArray();
 
         LoadTurrets(turretData);
-        Debug.Log("Game loaded.");
     }
 
     // Optional: Save on New Game

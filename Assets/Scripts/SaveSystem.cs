@@ -48,7 +48,6 @@ public static class SaveSystem
 
         // Write to file
         File.WriteAllText(GetSavePath(), json);
-        Debug.Log("Game Saved!");
     }
 
     // Load the game state from a file
