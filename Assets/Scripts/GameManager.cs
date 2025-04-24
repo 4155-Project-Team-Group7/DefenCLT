@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     public int currency { get; private set; } = 0;
 
+    public bool startNewGame = false; // Set this to true to start a fresh game
+    public bool loadGameOnStart = false; // Set this to true to load a game on start
+
     [Header("Turret Prefabs")]
     [SerializeField] private List<GameObject> turretPrefabs; 
     private Dictionary<string, GameObject> prefabLookup;
@@ -28,13 +31,13 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            return;
         }
 
         // Build prefab lookup dictionary
         turretPrefabs = Resources.LoadAll<GameObject>("Turrets").ToList();
         prefabLookup = turretPrefabs.ToDictionary(p => p.name, p => p);
     }
+
 
     public void SetCurrentWave(int wave)
     {
@@ -101,7 +104,7 @@ public class GameManager : MonoBehaviour
                 Debug.LogWarning($"Prefab not found: {turretData.prefabName}");
             }
 
-            placedTurrets.Add(turretData);
+            // placedTurrets.Add(turretData);
         }
     }
 
@@ -109,25 +112,27 @@ public class GameManager : MonoBehaviour
     public void SaveGame()
     {
         SaveSystem.SaveGame();
+        startNewGame = false; // Reset to false after saving
+        Debug.Log("Game saved.");
     }
 
     // Load the game
     public void LoadGame()
     {
         var loadedData = SaveSystem.LoadGame();
-
+        if (loadedData.Equals(default(SaveSystem.SceneData)))
+        {
+            Debug.LogWarning("No saved data found. Skipping LoadGame.");
+            startNewGame = true; // Set to true to start a new game
+            return;
+        }
         // Loading Scene
         Debug.Log($"Loaded scene: {loadedData.sceneName}");
 
         // Load Current Wave
-        Debug.Log($"Loaded current wave: {loadedData.currentWave}");
         Spawner.instance.LoadWave(loadedData.currentWave);
 
-
-        // Debug.Log($"Loaded player health: {loadedData.playerHealth}");
-
         // Load Currency
-        Debug.Log($"Loaded currency: {loadedData.currency}");
         LevelManager.main.LoadCurrency(loadedData.currency);
         
         // Convert SaveSystem.TurretSaveData back into TurretData
@@ -147,23 +152,24 @@ public class GameManager : MonoBehaviour
         ClearTurrets();
         currentWave = 1;
         playerHealth = 10;
+        startNewGame = false;
         Debug.Log("New game started.");
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            SaveGame();
-            Debug.Log("Game saved.");
-        }
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.Alpha9))
+    //     {
+    //         SaveGame();
+    //         Debug.Log("Game saved.");
+    //     }
 
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            LoadGame();
-            Debug.Log("Game loaded.");
-        }
-    }
+    //     if (Input.GetKeyDown(KeyCode.Alpha0))
+    //     {
+    //         LoadGame();
+    //         Debug.Log("Game loaded.");
+    //     }
+    // }
 
 }
 
@@ -175,9 +181,3 @@ public struct TurretData
     // public int upgradeLevel;
 }
 
-
-// [System.Serializable]
-// public class SceneTurretData
-// {
-//     public TurretData[] turrets;
-// }

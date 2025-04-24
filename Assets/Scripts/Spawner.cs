@@ -40,10 +40,10 @@ public class Spawner : MonoBehaviour
         onEnemyDestroy.AddListener(EnemyDestroyed);
     }
 
-    private void Start()
-    {
-        StartWave();
-    }
+    // private void Start()
+    // {
+    //     StartWave();
+    // }
 
     private void Update()
     {
@@ -105,7 +105,8 @@ public class Spawner : MonoBehaviour
     {
         currentWave = wave;
         GameManager.instance.SetCurrentWave(currentWave); // Update the current wave in GameManager
-        StartCoroutine(StartWave());
+        isSpawning = false;
+        inBuildMode = true;
     }
 
 }

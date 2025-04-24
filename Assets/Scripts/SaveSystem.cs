@@ -80,6 +80,7 @@ public static class SaveSystem
 
         // Check if the save file is from the current scene
         string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        Debug.Log($"Current scene: {currentScene} | Loaded scene: {loadedData.sceneName}");
         if (loadedData.sceneName != currentScene)
         {
             Debug.LogWarning("Saved data does not match the current scene.");
