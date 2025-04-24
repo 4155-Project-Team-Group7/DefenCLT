@@ -15,11 +15,12 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float spawnRate = 0.5f;
     [SerializeField] private float timeUntilWave = 10f;
     [SerializeField] private float scalingFactor = 0.75f;
+    [SerializeField] public static bool inBuildMode;
 
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
 
-    private int currentWave = 1;
+    public static int currentWave = 1;
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesRemaining;
@@ -41,7 +42,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(StartWave());
+        StartWave();
     }
 
     private void Update()
@@ -72,21 +73,21 @@ public class Spawner : MonoBehaviour
         enemiesAlive --;
     }
 
-    private IEnumerator StartWave()
+    public void StartWave()
     {
-        yield return new WaitForSeconds(timeUntilWave);
         isSpawning = true;
+        inBuildMode = false;
         enemiesRemaining = EnemiesPerWave(); 
     }
 
     private void EndWave()
     {
         isSpawning = false;
+        LevelManager.main.IncreaseCurrency(currentWave * 10);
         timeSinceLastSpawn = 0f;
         currentWave++;
-        StartCoroutine(StartWave());
-
-        GameManager.instance.SetCurrentWave(currentWave); // Update the current wave in GameManager
+        inBuildMode = true;
+        GameManager.instance.SetCurrentWave(currentWave);
     }
 
     private void SpawnEnemy()
