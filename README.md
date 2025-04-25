@@ -10,7 +10,9 @@
 <p>Build and run</p>
 <img width="600" alt="instructions" src="https://github.com/user-attachments/assets/5f9055d1-08eb-49e6-8a44-55eb88c0bb71">
 
-
+<h2>Test Credentials</h2>
+email: test@tester.com
+password: password
 
 
 
