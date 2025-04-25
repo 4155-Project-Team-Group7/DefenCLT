@@ -22,6 +22,14 @@
         "com.google.firebase.app": "12.8.0"
       }
     },
+    "com.google.firebase.firestore": {
+      "version": "file:../GooglePackages/com.google.firebase.firestore-12.8.0.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {
+        "com.google.firebase.app": "12.8.0"
+      }
+    },
     "com.google.firebase.storage": {
       "version": "file:../GooglePackages/com.google.firebase.storage-12.8.0.tgz",
       "depth": 0,
