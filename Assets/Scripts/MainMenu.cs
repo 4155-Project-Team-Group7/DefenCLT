@@ -32,6 +32,7 @@ public class MainMenu : MonoBehaviour
     {
         var auth = FirebaseAuth.DefaultInstance;
         var user = auth.CurrentUser;
+        // var level = LevelManager.main;
         if (user == null)
         {
             Debug.LogError("[Firestore] no user signed in, skipping write.");
@@ -44,12 +45,13 @@ public class MainMenu : MonoBehaviour
         var testDoc = new Dictionary<string, object>
         {
             { "username", user.DisplayName ?? user.Email },
-            { "testValue", Random.Range(0, 1000) },
+            { "Score", LevelManager.main.currency },
+            { "wave", Spawner.currentWave },
             { "createdAt", Timestamp.GetCurrentTimestamp() }
         };
 
         // write under a "testData" collection using auto‐ID
-        db.Collection("testData")
+        db.Collection("Leaderboard")
           .AddAsync(testDoc)
           .ContinueWithOnMainThread(task =>
         {
