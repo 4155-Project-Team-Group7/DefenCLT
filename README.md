@@ -13,6 +13,7 @@
 <h2>Test Credentials</h2>
 email: test@tester.com
 password: password
+Otherwise, register a new user!
 
 
 
