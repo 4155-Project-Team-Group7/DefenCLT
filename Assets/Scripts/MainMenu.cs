@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
+using Firebase.Auth;
+using Firebase.Firestore;
+using Firebase.Extensions;
 
 public class MainMenu : MonoBehaviour
 {
@@ -53,9 +56,12 @@ public class MainMenu : MonoBehaviour
 
     public void ExitToMenu()
     {
+        SaveTestData();
         SceneManager.LoadSceneAsync(0);
         GameManager.instance.SaveGame(); // Save the game before exiting to menu
         Debug.Log("Exiting to menu...");
     }
 
+
+    
 }
