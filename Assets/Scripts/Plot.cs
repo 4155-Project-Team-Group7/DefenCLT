@@ -28,6 +28,7 @@ public class Plot : MonoBehaviour
     {
         if (tower != null)
         {
+            Debug.Log("You already have a turret here!");
             return;
         }
 
@@ -41,5 +42,23 @@ public class Plot : MonoBehaviour
 
         LevelManager.main.SpendCurrency(towerToBuild.cost);
         tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+        GameManager.instance.RegisterTurret(transform.position, towerToBuild.prefab);
+
+    }
+
+    public void ClearTurret()
+    {
+        if (tower != null)
+        {
+            Destroy(tower);
+            tower = null;
+        }
+    }
+
+    public void LoadTurret(GameObject turretPrefab)
+    {
+        ClearTurret(); // Just in case there's already one
+        tower = Instantiate(turretPrefab, transform.position, Quaternion.identity);
+        GameManager.instance.RegisterTurret(transform.position, turretPrefab);
     }
 }

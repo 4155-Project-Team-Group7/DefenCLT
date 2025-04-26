@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour
 {
+    public static Spawner instance;
+
     [Header("References")]
     [SerializeField] private GameObject[] enemyList;
 
@@ -26,13 +28,22 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("More than one Spawner found! Destroying duplicate.");
+            Destroy(gameObject);
+        }
         onEnemyDestroy.AddListener(EnemyDestroyed);
     }
 
-    private void Start()
-    {
-        StartWave();
-    }
+    // private void Start()
+    // {
+    //     StartWave();
+    // }
 
     private void Update()
     {
@@ -46,6 +57,7 @@ public class Spawner : MonoBehaviour
         if (timeSinceLastSpawn >= (1f / spawnRate) && enemiesRemaining > 0)
         {
             SpawnEnemy();
+            Debug.Log("Spawned enemy. Enemies remaining: " + enemiesRemaining);
             enemiesRemaining--;
             enemiesAlive++;
             timeSinceLastSpawn = 0f;
@@ -76,6 +88,7 @@ public class Spawner : MonoBehaviour
         timeSinceLastSpawn = 0f;
         currentWave++;
         inBuildMode = true;
+        GameManager.instance.SetCurrentWave(currentWave);
     }
 
     private void SpawnEnemy()
@@ -88,4 +101,13 @@ public class Spawner : MonoBehaviour
     {
         return Mathf.RoundToInt(baseNumEnemies * Mathf.Pow(currentWave, scalingFactor));
     }
+
+    public void LoadWave(int wave)
+    {
+        currentWave = wave;
+        GameManager.instance.SetCurrentWave(currentWave); // Update the current wave in GameManager
+        isSpawning = false;
+        inBuildMode = true;
+    }
+
 }

@@ -18,6 +18,8 @@ public class Turret : MonoBehaviour
     private Transform target;
     private float timeUntilFire;
 
+
+
     //checking if there is an enemy and roataing the turret to it
     void Update()
     {
@@ -52,6 +54,7 @@ public class Turret : MonoBehaviour
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         Bullet bulletScript = bulletObj.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
+
     }
 
 
@@ -76,4 +79,9 @@ public class Turret : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f,0f,angle));
         turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
+
+
+
+
 }
+
