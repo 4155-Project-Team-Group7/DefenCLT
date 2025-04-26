@@ -62,6 +62,38 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Exiting to menu...");
     }
 
+    void SaveTestData()
+    {
+        var auth = FirebaseAuth.DefaultInstance;
+        var user = auth.CurrentUser;
+        // var level = LevelManager.main;
+        if (user == null)
+        {
+            Debug.LogError("[Firestore] no user signed in, skipping write.");
+            return;
+        }
 
+        var db = FirebaseFirestore.DefaultInstance;
+
+        // build a small test payload
+        var testDoc = new Dictionary<string, object>
+        {
+            { "username", user.DisplayName ?? user.Email },
+            { "Score", LevelManager.main.currency },
+            { "wave", Spawner.currentWave },
+            { "createdAt", Timestamp.GetCurrentTimestamp() }
+        };
+
+        // write under a "testData" collection using auto‐ID
+        db.Collection("Leaderboard")
+        .AddAsync(testDoc)
+        .ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted || task.IsCanceled)
+                Debug.LogError($"[Firestore] failed to write test data: {task.Exception}");
+            else
+                Debug.Log("[Firestore] test data written, ID = " + task.Result.Id);
+        });
+    }
     
 }
